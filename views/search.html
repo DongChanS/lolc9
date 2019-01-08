@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <title>전적검색결과</title>
+</head>
+<body>
+    <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+    <h1 class="display-4">{{sum_name}}님의 전적검색결과</h1>
+    <p class="lead">
+        {% if length != 0 %}
+            {% for result in results %}
+                <div> {{result[0]}} </div>
+                <div> {{result[1]}} {{result[2]}} 리그</div>
+                <div> {{result[-1]}} LP </div>
+                <div> {{result[3]}} 승 {{result[4]}} 패</div>
+                <div> {{result[5]}}</div>
+                <br>
+            {% endfor %}
+        {% else %}
+            <div>아직 리그가 없습니다. 분발하세요!</div>
+        {% endif %}
+        
+        <form action = '/'>
+            다시 검색하기  <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </p>
+    </div>
+    </div>
+    
+</body>
+</html>
